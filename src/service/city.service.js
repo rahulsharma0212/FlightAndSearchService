@@ -5,7 +5,7 @@ class CityService {
         this.cityRepository = new CityRepository();
     }
 
-    async createCity(name) {
+    async createCity({ name }) {
         try {
             const city = await this.cityRepository.createCity(name);
             return city;
@@ -17,7 +17,7 @@ class CityService {
 
     async deleteCity(cityId) {
         try {
-            await this.cityRepository.deleteCity(name);
+            await this.cityRepository.deleteCity(cityId);
             return true;
         } catch (error) {
             console.log("Something went wrong in service layer");
@@ -45,3 +45,5 @@ class CityService {
         }
     }
 }
+
+module.exports = CityService;
