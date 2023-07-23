@@ -1,12 +1,16 @@
-import express from "express";
-import {PORT} from "./config/serverConfig.js";
+const express = require("express");
+const { PORT } = require("./config/serverConfig");
+const { City } = require("./models/index");
 
-const setupAndStartServer = ()=>{
+const setupAndStartServer = () => {
     //create the express instance
     const app = express();
-    app.listen(PORT,()=>{
+    app.listen(PORT, () => {
         console.log(`Flight and search service is running on ${PORT}`);
-    })
-} 
+        /* City.create({
+            name: "new delhi",
+        }); */
+    });
+};
 
 setupAndStartServer();
